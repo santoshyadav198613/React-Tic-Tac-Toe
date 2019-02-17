@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Button from '@material-ui/core/Button';
 import * as serviceWorker from './serviceWorker';
+import AppBar  from './appBar';
 
 
 // class Square extends React.Component<any, any> {
@@ -138,7 +140,7 @@ class Game extends React.Component<any, any> {
                 'Go to game start';
             return (
                 <li key={move}>
-                    <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                    <Button variant="contained" color="primary" onClick={() => this.jumpTo(move)}>{desc}</Button>
                 </li>
             );
         });
@@ -151,6 +153,7 @@ class Game extends React.Component<any, any> {
         }
         return (
             <div className="game">
+            <AppBar /> 
                 <div className="game-board">
                     <Board squares={current.squares}
                         onClick={(i: any) => this.handleClick(i)} />
