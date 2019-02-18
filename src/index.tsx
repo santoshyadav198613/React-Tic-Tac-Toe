@@ -5,6 +5,7 @@ import App from "./App";
 import Button from "@material-ui/core/Button";
 import * as serviceWorker from "./serviceWorker";
 import AppBar from "./appBar";
+import ProductDetails from "./product/product-details";
 
 // class Square extends React.Component<any, any> {
 
@@ -161,7 +162,7 @@ class Game extends React.Component<any, any> {
     return (
       <div className="game">
         <AppBar />
-
+        <ProductDetails/>
         <div className="game-board">
           <Board
             squares={current.squares}
