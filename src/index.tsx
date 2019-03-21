@@ -6,7 +6,11 @@ import Button from "@material-ui/core/Button";
 import * as serviceWorker from "./serviceWorker";
 import AppBar from "./appBar";
 import ProductDetails from "./product/product-details";
-import { Counter } from './counter/counter';
+import { Counter } from "./counter/counter";
+import Menu from "./menubar/menubar";
+import Sidebar from "./sidebar/sidebar";
+
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 // class Square extends React.Component<any, any> {
 
@@ -162,9 +166,27 @@ class Game extends React.Component<any, any> {
     }
     return (
       <div className="game">
-        <AppBar />
-        <ProductDetails/>
-        <Counter />
+        <Router>
+          <div>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/counter">Counter</Link>
+              </li>
+            </ul>
+
+            <hr />
+
+            <Route exact path="/" component={ProductDetails} />
+            <Route path="/counter" component={Counter} />
+          </div>
+        </Router>
+        <Sidebar />
+        {/* <AppBar /> */}
+        <Menu />
+        <ProductDetails />
         <div className="game-board">
           <Board
             squares={current.squares}
